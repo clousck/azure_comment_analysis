@@ -26,7 +26,9 @@ def predict_api():
 
     # Llamar a la función para predecir el sentimiento
     prediction = predecir_sentimiento(texto)
-    return jsonify(prediction)
+
+
+    return jsonify({"result": prediction})
 
 
 if __name__ == '__main__':
