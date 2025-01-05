@@ -35,9 +35,9 @@ def predecir_sentimiento(texto):
 
     # Interpretar el resultado (asume que el modelo devuelve un valor entre 0 y 1)
     if prediccion[0] > 0.5:
-        return "Positivo"
+        return 1
     else:
-        return "Negativo"
+        return 0
 
 def predict(texto):
     prediccion = modelo.predict(texto)
