@@ -22,7 +22,7 @@ def predict_api():
     For direct API calls trought request
     '''
     # Obtener el texto desde el formulario
-    texto = request.form.get('comentario', '')
+    texto = request.form.get('comment', '')
 
     # Llamar a la función para predecir el sentimiento
     prediction = predecir_sentimiento(texto)
