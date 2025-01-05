@@ -16,13 +16,30 @@ def hello_world():
 
     return jsonify({'message': sentimiento})
 
-@app.route('/predict_api',methods=['POST'])
-def predict_api():
+@app.route('/predict_api_form',methods=['POST'])
+def predict_api_form():
     '''
     For direct API calls trought request
     '''
     # Obtener el texto desde el formulario
     texto = request.form.get('comment', '')
+
+    # Llamar a la función para predecir el sentimiento
+    prediction = predecir_sentimiento(texto)
+
+
+    return jsonify({"result": prediction})
+
+@app.route('/predict_api_json',methods=['POST'])
+def predict_api_json():
+    '''
+    For direct API calls trought request
+    '''
+    data = request.get_json()
+
+    print(data)
+    # Obtener el texto del JSON
+    texto = data.get('comment', '')
 
     # Llamar a la función para predecir el sentimiento
     prediction = predecir_sentimiento(texto)
