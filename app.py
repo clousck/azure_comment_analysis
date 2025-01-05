@@ -1,7 +1,9 @@
 from flask import Flask, jsonify, request
 from library.use_model import preprocesar_texto, predecir_sentimiento
+from flask_cors import CORS
 
 app = Flask(__name__)
+CORS(app)  # Habilitar CORS para toda la aplicación
 
 # Ruta de prueba
 @app.route('/test', methods=['GET'])
