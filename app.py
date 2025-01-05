@@ -3,7 +3,7 @@ from library.use_model import preprocesar_texto, predecir_sentimiento
 from flask_cors import CORS
 
 app = Flask(__name__)
-CORS(app)  # Habilitar CORS para toda la aplicación
+CORS(app, resources={r"/*": {"origins": "*"}})
 
 # Ruta de prueba
 @app.route('/test', methods=['GET'])
@@ -22,7 +22,7 @@ def predict_api():
     For direct API calls trought request
     '''
     # Obtener el texto desde el formulario
-    texto = request.form.get('comentario', '')
+    texto = request.form.get('comment', '')
 
     # Llamar a la función para predecir el sentimiento
     prediction = predecir_sentimiento(texto)
