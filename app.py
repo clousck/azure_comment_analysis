@@ -1,5 +1,5 @@
 from flask import Flask, jsonify, request
-from library.use_model import preprocesar_texto, predecir_sentimiento
+from library.use_model import predecir_sentimiento
 from flask_cors import CORS
 
 app = Flask(__name__)
@@ -9,8 +9,6 @@ CORS(app, resources={r"/*": {"origins": "*"}})
 @app.route('/test', methods=['GET'])
 def hello_world():
     texto = "Me encantó este producto, es excelente"
-    preprocesado = preprocesar_texto(texto)
-    print(preprocesado)
     sentimiento = predecir_sentimiento(texto)
     print(sentimiento)
 
